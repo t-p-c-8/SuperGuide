@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SuperGuide AI Chat</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        function showLoading() {
+            const chatBox = document.getElementById("chat-box");
+            const loading = document.createElement("div");
+            loading.className = "ai loading-bubble";
+            loading.id = "loading";
+            loading.innerHTML = `<img src="/static/bot.gif" class="loading-gif"> <span>SuperGuide is planning...</span>`;
+            chatBox.appendChild(loading);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function removeLoading() {
+            const loading = document.getElementById("loading");
+            if (loading) loading.remove();
+        }
+
+window.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    const input = form.querySelector("input[name='user_input']");
+
+    form.addEventListener("submit", () => {
+        showLoading();
+        setTimeout(() => input.value = "", 10);  // clears after a tiny delay
+    });
+});
+
+    </script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="header">
+            <img src="/static/logo.png" alt="SuperGuide" class="logo">
+            <span>SuperGuide Travel Planner</span>
+        </div>
+        <div class="chat-box" id="chat-box">
+            {% for message in messages %}
+                <div class="{{ message.role }}">
+                    {% if message.role == 'user' %}
+                        <img src="/static/user.png" class="avatar">
+                    {% else %}
+                        <img src="/static/bot.png" class="avatar">
+                    {% endif %}
+                    <div class="bubble">{{ message.content | safe }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <form action="/chat" method="post" class="chat-input">
+            <input type="text" name="user_input" placeholder="Ask or update your trip..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+    window.onload = () => {
+        const chatBox = document.getElementById("chat-box");
+        chatBox.scrollTop = chatBox.scrollHeight;
+    };
+    </script>
+
+</body>
+</html>

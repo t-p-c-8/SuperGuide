@@ -1,0 +1,122 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+    margin: 0;
+    padding: 0;
+}
+
+.chat-container {
+    width: 60%;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.header {
+    background-color: #4a90e2;
+    color: white;
+    padding: 15px 20px;
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.header .logo {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.chat-box {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f7f9fc;
+}
+
+.user, .ai {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: flex-end;
+}
+
+.user {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.ai {
+    flex-direction: row;
+}
+
+.bubble {
+    max-width: 70%;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 0 10px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.user .bubble {
+    background-color: #dcf8c6;
+}
+
+.ai .bubble {
+    background-color: #e4e6eb;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 10px 20px;
+    background: #fafafa;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+}
+
+.chat-input button {
+    margin-left: 10px;
+    padding: 12px 20px;
+    background-color: #4a90e2;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.chat-input button:hover {
+    background-color: #357ABD;
+}
+
+.loading-bubble {
+    display: flex;
+    align-items: center;
+    font-style: italic;
+}
+
+.loading-gif {
+    width: 25px;
+    margin-right: 10px;
+}

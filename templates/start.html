@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SuperGuide Start</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('/static/bg.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .chat-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      margin: 5% auto;
+      max-width: 550px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .header {
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #1a1a1a;
+    }
+
+    .header img {
+      height: 40px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .chat-box p {
+      font-size: 17px;
+      margin-bottom: 25px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 20px;
+      width: 100%;
+      font-size: 17px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 600px) {
+      .chat-container {
+        padding: 25px;
+        margin: 10% 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="header">
+      <img src="/static/logo.png" alt="SuperGuide Logo">
+      SuperGuide
+    </div>
+
+    <form action="/start_chat" method="post" class="chat-box">
+      <p>Hello, I'm SuperGuide! Let's plan your trip. Please fill in your preferences:</p>
+
+      <input name="place" placeholder="Destination (e.g., Goa)" required>
+      <input name="duration" placeholder="Duration (e.g., 5 days)" required>
+      <input name="budget" placeholder="Budget in ₹ (e.g., 10000)" required>
+      <input name="people" placeholder="Number of People (e.g., 2)" required>
+
+      <select name="pace" required>
+        <option value="">Select Travel Pace</option>
+        <option value="relaxed">Relaxed</option>
+        <option value="moderate">Moderate</option>
+        <option value="fast">Fast</option>
+      </select>
+
+      <select name="food" required>
+        <option value="">Food Preference</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="vegan">Vegan</option>
+        <option value="non-vegetarian">Non-Vegetarian</option>
+        <option value="any">Any</option>
+      </select>
+
+      <textarea name="suggestions" placeholder="Other Suggestions (e.g., pet friendly, no trekking)"></textarea>
+
+      <button type="submit">Plan My Trip</button>
+    </form>
+  </div>
+</body>
+</html>
